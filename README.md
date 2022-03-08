@@ -20,7 +20,7 @@ Each week, I will summarize my milestone activity and progress by including a **
 
 <br>
 
-**Week 1**: Replace this paragraph with a brief "stand-up" (use steps 1-3 above as a guide on what to write about). Summarize your most recent milestone activity and work. What did you achieve? Are there any challenges? Describe your next steps and how you plan to prioritize your time. 3-4 sentences is acceptable. A stand-up is meant to be a succinct update on how things are going. Use this as an opportunity to report out on progress. 
+**Week 1**: This week I conducted research on API design and data modeling. In addition to research conducted, I began creating an diagram mapping out the data needs for a project prototype. There weren't any major challenges I faced this week. However, it is taking me sometime to get use to the GitHub workflow. I've used it before but forgot most of the process. Moving forward, I will continue working on my DB Diagram and spend some more time getting comfortable with this workflow.
 
 **Week 2**: Next Stand up... Milestone 2    
 
