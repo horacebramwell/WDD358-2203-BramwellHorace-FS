@@ -1,45 +1,12 @@
-
-# Welcome to Project & Portfolio! ...🚀 
-
-This repository will be used to practice and prepare for the upcoming Final Project. We will use it to keep track of research and development conducted in this class. Follow the instructions below to get started.
-
-## Step 1
-
-Go to your settings tab and rename your repository from  "CourseCode-YYMM-LastFirst-AccountName" to follow this naming convention... **CourseCode-YearMonth-LastFirst**  
-
-**Examples:**   
-WDD469-2106-DoeJohn  
-WDD358-2106-DoeJohn
-
-Update the About section of the repo to match this naming convention as well. 
-
-
-## Step 2
-
-After saving the new name for your repository, clone down a local copy and then continue to review open activities for this week on FSO.  
-
-
-
-## Step 3
-
-Attend the first Live Session. If you are unable to attend the upcoming Live Session, be sure to view the "Live Sessions" Week 1 overview video and any key concept videos available in your currently open assignments. You can then begin to work on assignments as they become available. 
-
-<br>
-
-
-### Next Steps... 
-After completing the above steps, update this read me with your own text. Delete all of the above text including this paragraph. You will then need to customize this read me to describe what this repository contains. Use the text below as a starting point and customize the text with your own words. As you make updates to your work each week, continue to update this readme file. Use the readme to explain your ongoing updates to this repository. To receive credit for your research and development, be sure to also upate your documentation each week.  
-
-
 # Project
-### First Last / Student ID: 000####### 
- Hello my name is ______ . I am a ______ student from ____. Here's some additional information about me...
+### Horace Bramwell / Student ID: 0004871418 
+ Hello my name is Horace Bramwell. I am a Web Design & Development student from Full Sail University.
 
 
 ![Degree Program](https://img.shields.io/badge/degree-web%20design%20%26%20development-blue.svg)&nbsp; 
 
 
-eMaill@student.fullsail.edu -- (###) ###-#### 
+hbramwell@student.fullsail.edu -- (754) 302-8813 
 
 
 ---
@@ -53,7 +20,7 @@ Each week, I will summarize my milestone activity and progress by including a **
 
 <br>
 
-**Week 1**: Replace this paragraph with a brief "stand-up" (use steps 1-3 above as a guide on what to write about). Summarize your most recent milestone activity and work. What did you achieve? Are there any challenges? Describe your next steps and how you plan to prioritize your time. 3-4 sentences is acceptable. A stand-up is meant to be a succinct update on how things are going. Use this as an opportunity to report out on progress. 
+**Week 1**: This week I conducted research on API design and data modeling. In addition to research conducted, I began creating an diagram mapping out the data needs for a project prototype. There weren't any major challenges I faced this week. However, it is taking me sometime to get use to the GitHub workflow. I've used it before but forgot most of the process. Moving forward, I will continue working on my DB Diagram and spend some more time getting comfortable with this workflow.
 
 **Week 2**: Next Stand up... Milestone 2    
 
