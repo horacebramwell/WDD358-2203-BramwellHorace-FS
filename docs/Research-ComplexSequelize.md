@@ -140,8 +140,52 @@ This was a helpful video in helping me understand what environment variables are
 ```
 
 
-**Resource 2: Title**
-[Site Address](https://www.someaddress.com/full/url/)
+**Resource 2: Sequelize Migration**
+[Youtube.com](https://www.youtube.com/watch?v=a5Wh_LDXtLc) 
+
+This video by Ben Awad does a great job explaing sequelize migrations. This has been something that I didn't quite understand at first. Although the video is 5 years old, it still does a great job explaining what migrations are, how to use them, and how to run them in Sequelize.
+
+* A migration is a file that is used to track the changes to the database.
+* We can use migrations to add new columns, remove columns, or change the data type of a column.
+* The migration file has an up and down function. Inside of these fucntions is where we place the code that we want to run.
+* The up function is used to update the database.
+* The down function is used to roll back the changes.
+
+```
+module.exports = {
+    up: (queryInterface, Sequelize) => {
+        return queryInterface.createTable('users', { 
+            id: {
+                allowNull: false, 
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            name: {
+                type: Sequelize.STRING
+            },
+            email: {
+                type: Sequelize.STRING
+            },
+            password: {
+                type: Sequelize.STRING
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            }
+        });
+    },
+    down: (queryInterface, Sequelize) => {
+        return queryInterface.dropTable('users');
+    }
+};
+```
+
 
 **Resource 3: Title**
 [Site Address](https://www.someaddress.com/full/url/)
