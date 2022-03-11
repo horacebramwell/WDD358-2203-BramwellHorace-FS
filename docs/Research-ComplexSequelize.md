@@ -97,9 +97,6 @@ beforeCreate: function(user, options) {
     });
 ```
 
-
-
-
 <br>
 
 ## Reference Links
