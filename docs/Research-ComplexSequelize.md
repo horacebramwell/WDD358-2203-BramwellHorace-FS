@@ -186,7 +186,14 @@ module.exports = {
 };
 ```
 
+**Resource 3: 17 Practical psql Commands That You Don’t Want To Miss**
+[postgresqltutorial.com](https://www.postgresqltutorial.com/psql-commands/)
 
-**Resource 3: Title**
-[Site Address](https://www.someaddress.com/full/url/)
-```
+This is a pretty short but uself guide to common psql terminal commands. Some of them include:
+
+* psql -d database_name -U username -c - This is the command to connect to the database.
+* \q - This command is used to exit the psql terminal.
+* \l - This command is used to list all of the databases.
+* \c - This command is used to connect to a specific database.
+* \d - This command is used to describe a table.
+* \dt - This command is used to list all of the columns in a table.
