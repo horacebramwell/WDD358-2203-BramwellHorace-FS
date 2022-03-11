@@ -44,7 +44,7 @@ title: {
         }
 ```
 
-* When you add a custom validation rule, you can pass in a function that will be called with the value of the field. If the function does not throw an error, the validation passes.
+- When you add a custom validation rule, you can pass in a function that will be called with the value of the field. If the function does not throw an error, the validation passes.
 
 <br>
 
@@ -52,8 +52,8 @@ title: {
 
 Another great video by Alex Booker covering Sequelize hooks also known as middleware. Hooks are a great way to add additional functionality to your models.
 
-* Hooks are functions that are called when some event occurs.
-* Hooks are called before and after the event.
+- Hooks are functions that are called when some event occurs.
+- Hooks are called before and after the event.
 
 ```
 beforeCreate: function(user, options) {
@@ -61,9 +61,41 @@ beforeCreate: function(user, options) {
 }
 ```
 
-* There are several hooks available to you. You can find a list of them [here](https://sequelize.org/master/manual/hooks.html).
-* You can't use hooks with instances. You can only use hooks with models.
-* There are alternative ways to add hooks. 
+- There are several hooks available to you. You can find a list of them [here](https://sequelize.org/master/manual/hooks.html).
+- You can't use hooks with instances. You can only use hooks with models.
+- There are 3 ways to add hooks to your models. 
+
+```
+// 1. Add a hook to the model using the hook property
+
+    User.init({
+        email: {
+            type: DataTypes.STRING,
+            validate: {
+                isEmail: true
+            }
+        }
+    }, {
+        hooks: {
+            beforeCreate: function(user, options) {
+                user.email = user.email.toLowerCase();
+            }
+        },
+        sequelize: db
+    });
+
+// 2. Using the Model object
+
+    User.addHook('beforeCreate', function(user, options) {
+        user.email = user.email.toLowerCase();
+    });
+
+ // 3. Using the Model object with a hook function
+    
+    User.beforeCreate(async (user, options) {
+        user.email = user.email.toLowerCase();
+    });
+```
 
 
 
@@ -72,15 +104,45 @@ beforeCreate: function(user, options) {
 
 ## Reference Links
 
-Use this section to highlight your own independent research. Replace the example references below with your own links and recommended resources. It is acceptable to provide multiple links for a single topic.
+**Resource 1: Configuring Environment Variables in Node.js**
+[Youtube.com](https://www.youtube.com/watch?v=14zY-u9EBCU) 
 
-What resource(s) did you find most helpful for this research assignment and why?
+This was a helpful video in helping me understand what environment variables are and how to set them up. There are a few different ways they can be set up. 
 
-**Resource 1: Title**  
+* Enviornment variables usually are all caps. They don't have to be, it's just best practice. For example, to create `MY_VARIABLE`. 
+* To run the variable in the application, you would use `process.env.MY_VARIABLE`.
+* The variable can be set in a number of ways. 
+
+``` 
+    // 1. Set the variable in the application
+
+    process.env.MY_VARIABLE = 'Hello World';
+
+    // 2. Set the variable in the application using the dotenv package
+
+    // This will look for a file called .env in the root directory of the project.
+    require('dotenv').config(); 
+
+    // 3. Set the variable in the command line
+
+    MY_VARIABLE=Hello World  
+
+    // 4. Set the variable using cross-env 
+
+    cross-env MY_VARIABLE=Hello World
+
+    // 5. Set the variable inside of the package.json file
+
+    "scripts": {
+        "dev": "PORT=3000 node index.js"
+    }
+
+```
+
+
+**Resource 2: Title**
 [Site Address](https://www.someaddress.com/full/url/)
 
-**Resource 2: Title**  
+**Resource 3: Title**
 [Site Address](https://www.someaddress.com/full/url/)
-
-**Resource 3: Title**  
-[Site Address](https://www.someaddress.com/full/url/)
+```
