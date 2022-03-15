@@ -1,11 +1,16 @@
-const { Material, Category, Users, Supplier } = require('../models');
+const { Production, Product } = require('../models');
 
-exports.getAll = async (req, res) => {
+exports.getAll = async (req, res, next) => {
   try {
-    const materials = await Material.findAll({
-      include: [{ model: Category }, { model: Supplier }],
+    const productions = await Production.findAll({
+      include: [
+        {
+          model: Product,
+          attributes: ['name'],
+        },
+      ],
     });
-    res.status(200).json(materials);
+    res.status(200).json(productions);
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -13,18 +18,25 @@ exports.getAll = async (req, res) => {
   }
 };
 
-exports.getOne = async (req, res) => {
+exports.getOne = async (req, res, next) => {
   try {
-    const material = await Material.findByPk(req.params.id);
+    const production = await Production.findByPk(req.params.id, {
+      include: [
+        {
+          model: Product,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-    if (!material) {
+    if (!production) {
       res.set('Content-Type', 'application/json');
       res.status(404).json({
-        error: 'No material found',
+        error: 'No production found',
       });
-    } else if (material) {
+    } else if (production) {
       res.set('Content-Type', 'application/json');
-      res.status(200).json(material);
+      res.status(200).json(production);
     }
   } catch (err) {
     if (err.name === 'SequelizeDatabaseError') {
@@ -36,17 +48,16 @@ exports.getOne = async (req, res) => {
   }
 };
 
-exports.create = async (req, res) => {
-  console.log(req.body);
+exports.create = async (req, res, next) => {
   try {
-    const material = await Material.create(req.body);
+    const production = await Production.create(req.body);
     res.set('Content-Type', 'application/json');
-    res.status(201).json(material);
+    res.status(201).json(production);
   } catch (err) {
     if (err.name === 'SequelizeDatabaseError') {
       res.set('Content-Type', 'application/json');
       res.status(400).json({
-        error: err.errors[0].message,
+        error: err.message,
       });
     } else {
       res.set('Content-Type', 'application/json');
@@ -57,19 +68,22 @@ exports.create = async (req, res) => {
   }
 };
 
-exports.update = async (req, res) => {
+exports.update = async (req, res, next) => {
   try {
-    const material = await Material.findByPk(req.params.id);
+    const production = await Production.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
 
-    if (!material) {
+    if (!production) {
       res.set('Content-Type', 'application/json');
       res.status(404).json({
-        error: 'No material found',
+        error: 'No production found',
       });
-    } else if (material) {
-      await material.update(req.body);
+    } else if (production) {
       res.set('Content-Type', 'application/json');
-      res.status(200).json(material);
+      res.status(200).json(production);
     }
   } catch (err) {
     if (err.name === 'SequelizeDatabaseError') {
@@ -86,19 +100,23 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.delete = async (req, res) => {
-  try {
-    const material = await Material.findByPk(req.params.id);
 
-    if (!material) {
+exports.delete = async (req, res, next) => {
+  try {
+    const production = await Production.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!production) {
       res.set('Content-Type', 'application/json');
       res.status(404).json({
-        error: 'No material found',
+        error: 'No production found',
       });
-    } else if (material) {
-      await material.destroy();
+    } else if (production) {
       res.set('Content-Type', 'application/json');
-      res.status(204).json();
+      res.status(200).json(production);
     }
   } catch (err) {
     if (err.name === 'SequelizeDatabaseError') {

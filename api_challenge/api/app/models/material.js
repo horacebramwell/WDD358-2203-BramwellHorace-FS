@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'id',
         onDelete: 'CASCADE',
       });
+
+      models.Material.hasMany(models.Product, {
+        foreignKey: 'materialId',
+      });
+
+      models.Material.hasMany(models.Supplier, {
+        foreignKey: 'materialId',
+      });
     }
   }
   Material.init(

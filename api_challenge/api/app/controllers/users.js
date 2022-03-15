@@ -1,10 +1,10 @@
-const { Users, Material, Category } = require('../models');
+const { Users, Material, Category, Supplier, Product, Formula, Production } = require('../models');
 
 // GET /users
 exports.getAll = async (req, res) => {
   try {
     const users = await Users.findAll({
-      include: [{ model: Material }, { model: Category }],
+      include: [ { model: Material  }, { model: Category, attributes: ['name'] }, { model: Supplier, attributes: ['name'] }, { model: Product, attributes: ['name'] }, { model: Formula, attributes: ['name'] }, { model: Production, attributes: ['name'] } ],
     });
     res.status(200).json(users);
   } catch (err) {
