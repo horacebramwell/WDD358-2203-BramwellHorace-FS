@@ -1,0 +1,106 @@
+// Imported  fonts
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
+
+// Typography
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font: 1.4rem/2.5rem $paragraph;
+    background: $base-background;
+    color: $accent-dark3;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-family: $base-heading;
+    font-weight: $heavy-weight;
+
+    @media (min-width: 600px) {
+        font-size: 3rem;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 4rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: $base-heading;
+    font-weight: $heavy-weight;
+    color: $accent-dark3;
+
+    @media (min-width: 600px) {
+        font-size: 2.4rem;
+    } 
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: $base-heading;
+    font-weight: $bold-weight;
+    clear: both;
+    color: $accent-color1;
+
+    @media (min-width: 600px) {
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 2.6rem;
+    }
+}
+
+p {
+    font-size: 1.6rem;
+    font-family: $paragraph;
+    font-weight: $regular-weight;
+    margin: 1.5rem 0;
+    color: $accent-dark2;
+    line-height: 2.4rem;
+
+    @media (min-width: 600px) {
+        font-size: 1.8rem;
+        line-height: 2.7rem;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+}
+
+form {
+    font-family: $base-heading;
+
+    label {
+        font-size: 1.6rem;
+    
+        @media (min-width: 600px) {
+            font-size: 1.8rem;
+        }
+    
+        @media (min-width: 1200px) {
+            font-size: 2rem;
+        }
+    }
+
+    input::placeholder, textarea::placeholder, select, input[type="date"] {
+        font-family: $paragraph;
+        font-size: 1.4rem;
+
+        @media (min-width: 600px) {
+            font-size: 1.6rem;
+        }
+    
+        @media (min-width: 1200px) {
+            font-size: 1.8rem;
+        }
+    }
+}
+

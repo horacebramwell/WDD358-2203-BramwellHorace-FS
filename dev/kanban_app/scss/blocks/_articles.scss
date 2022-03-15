@@ -1,0 +1,49 @@
+// article
+article {
+    max-width: 100%;
+    display: block;
+    background: $base-light;
+    padding: 2rem;
+    overflow: auto;
+    margin: 2rem;
+    border-radius: 0.5rem;
+    filter: drop-shadow(.5rem .5rem .4rem $accent-light2);
+
+    .task__date {
+        font-size: 1.4rem;
+        font-weight: $medium-weight;
+        color: $accent-dark3;
+        background-image: url("../images/cal.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 0 0 0 3rem;
+        display: block;
+
+    }
+
+    .task__priority {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: $bold-weight;
+        padding: 0.3rem 2rem;
+        float: right;
+        border-radius: 20rem;
+        text-transform: capitalize;
+    }
+
+    // Task priority
+    [data-priority = "low"] {
+        background: $low-priotiy-background;
+        color: $low-priority-text;
+    }
+
+    [data-priority = "medium"] {
+        background: $medium-priority-background;
+        color: $medium-priority-text;
+    }
+
+    [data-priority = "high"] {
+        background: $high-priority-background;
+        color: $high-priority-text;
+    }
+}

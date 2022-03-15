@@ -1,0 +1,73 @@
+section {
+    height: max-content;
+    border-radius: 0.5rem;
+    background: $task-background;
+    animation: fadeIn 1s;
+
+    // header
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background: $base-light;
+        border-radius: 0.5rem 0.5rem 0 0;
+
+        h2 {
+            font-family: $base-heading;
+            font-size: 2rem;
+            font-weight: $medium-weight;
+
+            @media (min-width: 600px) {
+                font-size: 2.4rem;
+            }
+        }
+    }
+
+    &:nth-of-type(1) {
+
+        border: 1px solid $accent-border1;
+
+        h3 {
+            color: $accent-color1;
+        }
+    }
+
+    &:nth-of-type(2) {
+
+        border: 1px solid $accent-border2;
+
+
+        h3 {
+            color: $accent-color2;
+        }
+
+        header {
+           
+            button {
+                @include btn-theme ($accent-color2, $base-light); 
+            }
+        }
+    }
+
+    &:nth-of-type(3) {
+
+        border: 1px solid $accent-border3;
+
+        h3 {
+            color: $accent-color3;
+        }
+        
+        header {
+            
+            button {
+                @include btn-theme ($accent-color3, $base-light); 
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
