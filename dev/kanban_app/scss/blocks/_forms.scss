@@ -1,0 +1,118 @@
+form {
+  display: block;
+  overflow: hidden;
+  background: $base-light;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem $accent-dark4;
+  position: fixed;
+  animation: slideIn .8s linear;
+  margin: 0 5%;
+
+  div {
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 3rem 4rem 0;
+
+    input, textarea, select {
+      border: 0.2rem solid $accent-light3;
+      border-radius: 0.4rem;
+      width: 100%;
+      display: block;
+      font-family: inherit;
+      font-size: 1.4rem;
+      padding: 1rem;
+    }
+
+    input:focus,textarea:focus, select:focus {
+      outline: solid 0.3rem $accent-color4;
+    }
+
+    input[type='color'] {
+      height: 8rem;
+      background-color: transparent;
+      margin-top: 1rem;
+      padding: 0;
+    }
+
+    textarea {
+      resize: none;
+      height: 8rem;
+
+      @media (min-width: 600px) {
+        height: 15rem;
+      }
+    }
+  }
+
+  h2 {
+    background: $accent-color4;
+    color: $base-light;
+    padding: 2rem 4rem;
+
+    @media (min-width: 600px) {
+      padding: 3rem 4rem;
+    }
+
+  }
+
+  button {
+    background-color: $accent-color4;
+    background-image: none;
+    text-indent: 0;
+    width: calc(60% - 8rem);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 340px) {
+      width: calc(50% - 5rem);
+    }
+
+    &:nth-of-type(1) {
+      margin-left: 4rem;
+      margin-right: 2rem;
+    }
+
+  }
+
+  #close-btn {
+    background-color: transparent;
+    background-image: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    float: right;
+    position: absolute;
+    top: 2rem;
+    left: 90%;
+    height: 2.5rem;
+    color: $base-light;
+    font-size: 2rem;
+    font-weight: 500;
+    text-indent: 0;
+  }
+
+  .error {
+    font-size: 1.4rem;
+    color: $error;
+  }
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(40rem);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform: translateY(-5rem);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: translateY(1rem);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+}
