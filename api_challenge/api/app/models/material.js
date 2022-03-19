@@ -18,8 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'materialId',
       });
 
-      models.Material.hasMany(models.Supplier, {
-        foreignKey: 'materialId',
+      models.Material.belongsTo(models.Supplier, {
+        foreignKey: {
+          name: 'supplierId',
+          field: 'id',
+        }
       });
     }
   }

@@ -32,13 +32,14 @@ const todo = todos[1];
 
 <br>
 
-## Example Topic Title
+## Redux DevTools: Tips and tricks for faster debugging
 
-Brief description of the resource and key concepts learned. Feel free to use bullets, embedded images, and other ideas to capture your research
+This article discusses some tips and tricks for faster debugging in Redux using Redux DevTools. Redux dev tools are essentially tools used for Redux-based applications. Similar to Chrome DevTools which allows us to directly manipulate content on a web page, the Redux dev tools allow us to manipulate Redux operations on the web application. Some of the actions we can perform using Redux DevTools include:
 
-- Key concept 1
-- Key concept 2
-- Key concept 3
+- **Action tracing**: This allows us to see what call stack has triggered an action.
+- **Skipping actions**: This can be done by using the log monitor and inspector to disable or remove an action from the timeline.
+- **Jumping to actions**: In addition to skipping actions, Redux DevTools allows us to jump to a particular state without the need of moving through the timeline.
+- **Allowing & Blocking Actions**: We can monitor only desired actions or block certain actions from appearing in the DevTools by adding a list of actions to either block or allow in the DevTools settings or while initializing it in our applications.
 
 <br>
 
