@@ -6,13 +6,29 @@
 
 <br>
 
-## Example Topic Title
+## Why you should use an object, and not an array, for lists in Redux
 
-Brief description of the resource and key concepts learned. Feel free to use bullets, embedded images, code examples, and other ideas to capture your research.
+This article makes a good case for using an object instead of an array for lists in Redux. You can reduce the complexity of your code and make it easier to perform operations on the list by using an object. For example, to perform read, update, or delete operations in an array, you have to write a lot of code to handle the actions. You can reduce that code by opting for an object instead. You can perform the same operations by accessing a unique identifier with an object versus an array where you must use complex functions.
 
-- Key concept 1
-- Key concept 2
-- Key concept 3
+**Example:**
+
+```
+// Array
+const todos = [ { id: 1, text: 'Learn Redux' }, { id: 2, text: 'Learn React' } ];
+
+// Find the item with id: 1
+const todo = todos.find(todo => todo.id === 1);
+
+// Object
+const todos = {
+    1: { id: 1, text: 'Learn Redux' },
+    2: { id: 2, text: 'Learn React' }
+    };
+}
+
+// Find the item with id: 1
+const todo = todos[1];
+```
 
 <br>
 
