@@ -22,7 +22,7 @@ Each week, I will summarize my milestone activity and progress by including a **
 
 **Week 1**: This week I conducted research on API design and data modeling. In addition to research conducted, I began creating an diagram mapping out the data needs for a project prototype. There weren't any major challenges I faced this week. However, it is taking me sometime to get use to the GitHub workflow. I've used it before but forgot most of the process. Moving forward, I will continue working on my DB Diagram and spend some more time getting comfortable with this workflow.
 
-**Week 2**: Next Stand up... Milestone 2    
+**Week 2**: I spent this week researching topics additional topics to help design my API. These topics include error handling in node, Sequelize hooks, validation, and working with Sequelize migrations. I began work on the API, which turned out to be more challenging than expected. Most of my troubles came from figuring out the appropriate mode associations. It seems that my API is much more complex than I initially thought. I need to add additional columns and a junction table to get the API working as intended. Moving into the next milestone, I will continue to work on the API and research more on model associations. I want to have a strong understanding of working with them in Sequelize.
 
 **Week 3**:    
 
