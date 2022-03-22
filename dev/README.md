@@ -103,7 +103,7 @@ This application was created with a focus on the following Requirements:
 
 <br>
 
-## <img src="https://emojis.slackmojis.com/emojis/images/1643514082/390/redux.png?1643514082" alt="redux logo" width="20"/> Redux-Toolkit
+## <img src="https://emojis.slackmojis.com/emojis/images/1643514082/390/redux.png?1643514082" alt="redux logo" width="30"/> Redux-Toolkit
 
 This folder contains my completed Redux-Toolkit quick start project. Completing the walkthrough was very helpful and provided me with a basic understanding of Redux-Toolkit and a few of its workings under the hood.
 
@@ -115,3 +115,9 @@ This folder contains my completed Redux-Toolkit quick start project. Completing 
 - Redux reducers: How to set up the functions that handle the actions and update the state.
 - useSelector: How to use the useSelector hook to access the state.
 - useDispatch: How to use the useDispatch hook to dispatch actions that update the state.
+
+<br>
+
+## <img src="https://jestjs.io/img/jest.png" alt="jest logo" width="20"/> Jest Testing
+
+This folder contains a few completed Jest tests. I've gone through the basic setup and wrote a few tests to get a feel for how Jest works.
