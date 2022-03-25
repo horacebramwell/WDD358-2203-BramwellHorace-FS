@@ -1,23 +1,10 @@
 const router = require('express').Router();
+const materialCtrl = require('../controllers/materials');
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-router.get('/:id', (req, res) => {
-  res.send(`Hello ${req.params.id}!`);
-});
-
-router.post('/', (req, res) => {
-  res.send(`Hello ${req.body.id}!`);
-});
-
-router.put('/:id', (req, res) => {
-  res.send(`Hello ${req.params.id}!`);
-});
-
-router.delete('/:id', (req, res) => {
-  res.send(`Hello ${req.params.id}!`);
-});
+router.get('/', materialCtrl.getAll);
+router.get('/:id', materialCtrl.getOne);
+router.post('/', materialCtrl.create);
+router.put('/:id', materialCtrl.update);
+router.delete('/:id', materialCtrl.delete);
 
 module.exports = router;
