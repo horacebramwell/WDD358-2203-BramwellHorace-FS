@@ -1,0 +1,7 @@
+// Mixins
+@mixin btn-theme($background, $textColor){
+    background: $background no-repeat 1rem/20% url(../images/add.png);
+    color: $textColor;
+    text-indent: 1rem;
+    @extend %btn;
+}
