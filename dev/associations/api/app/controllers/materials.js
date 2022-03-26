@@ -1,4 +1,5 @@
 const { material, category } = require('../models');
+const { v4: uuid } = require('uuid');
 
 exports.getAll = async (req, res) => {
   try {
@@ -10,7 +11,14 @@ exports.getAll = async (req, res) => {
         },
       ],
     });
-    res.status(200).json(materials);
+
+    if (materials) {
+      res.status(200).json(materials);
+    } else {
+      res.status(404).json({
+        message: 'Materials not found',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -20,7 +28,7 @@ exports.getAll = async (req, res) => {
 
 exports.getOne = async (req, res) => {
   try {
-    const material = await material.findOne({
+    const materialObj = await material.findOne({
       where: {
         id: req.params.id,
       },
@@ -31,7 +39,14 @@ exports.getOne = async (req, res) => {
         },
       ],
     });
-    res.status(200).json(material);
+
+    if (materialObj) {
+      res.status(200).json(materialObj);
+    } else {
+      res.status(404).json({
+        message: 'Material not found',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -41,10 +56,13 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    const material = await material.create(req.body);
+    const materialObj = await material.create({
+      id: uuid(),
+      name: req.body.name,
+    });
 
-    if (material) {
-      res.status(201).json(material);
+    if (materialObj) {
+      res.status(201).json(materialObj);
     } else {
       res.status(400).json({
         message: 'Material not created',
@@ -59,12 +77,19 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const material = await material.update(req.body, {
+    const materialObj = await material.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json(material);
+
+    if (materialObj) {
+      res.status(201).json(materialObj);
+    } else {
+      res.status(400).json({
+        message: 'Material not updated',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -74,63 +99,24 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const material = await material.destroy({
+    const materialObj = await material.destroy({
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json(material);
+
+    if (materialObj) {
+      res.status(200).json({
+        message: 'Material deleted',
+      });
+    } else {
+      res.status(400).json({
+        message: 'Material not deleted',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
     });
   }
 };
-
-// exports.getOne = async (req, res) => {
-//   try {
-//     const material = await material.findByPk(req.params.id);
-//     res.status(200).json(material);
-//   } catch (err) {
-//     res.status(500).json({
-//       message: err.message,
-//     });
-//   }
-// };
-
-// exports.create = async (req, res) => {
-//   try {
-//     const material = await material.create(req.body);
-//     res.status(201).json(material);
-//   } catch (err) {
-//     res.status(500).json({
-//       message: err.message,
-//     });
-//   }
-// };
-
-// exports.update = async (req, res) => {
-//   try {
-//     const material = await material.findByPk(req.params.id);
-//     await material.update(req.body);
-//     res.status(200).json(material);
-//   } catch (err) {
-//     res.status(500).json({
-//       message: err.message,
-//     });
-//   }
-// };
-
-// exports.delete = async (req, res) => {
-//   try {
-//     const material = await material.findByPk(req.params.id);
-//     await material.destroy();
-//     res.status(200).json({
-//       message: 'Material deleted',
-//     });
-//   } catch (err) {
-//     res.status(500).json({
-//       message: err.message,
-//     });
-//   }
-// };

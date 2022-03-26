@@ -1,9 +1,17 @@
 const { category } = require('../models');
+const { v4: uuid } = require('uuid');
 
 exports.getAll = async (req, res) => {
   try {
     const categories = await category.findAll();
-    res.status(200).json(categories);
+
+    if (categories) {
+      res.status(200).json(categories);
+    } else {
+      res.status(404).json({
+        message: 'Categories not found',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -13,12 +21,19 @@ exports.getAll = async (req, res) => {
 
 exports.getOne = async (req, res) => {
   try {
-    const category = await category.findOne({
+    const categoryObj = await category.findOne({
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json(category);
+
+    if (categoryObj) {
+      res.status(200).json(categoryObj);
+    } else {
+      res.status(404).json({
+        message: 'Category not found',
+      });
+    }
   } catch (err) {
     res.status(500).json({
       message: err.message,
@@ -28,10 +43,14 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    const category = await category.create(req.body);
+    console.log(req.body);
+    const newCategory = await category.create({
+      id: uuid(),
+      name: req.body.name,
+    });
 
-    if (category) {
-      res.status(201).json(category);
+    if (newCategory) {
+      res.status(201).json(newCategory);
     } else {
       res.status(400).json({
         message: 'Category not created',
@@ -46,14 +65,14 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const category = await category.update(req.body, {
+    const categoryUpdate = await category.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
 
-    if (category) {
-      res.status(201).json(category);
+    if (categoryUpdate) {
+      res.status(201).json(categoryUpdate);
     } else {
       res.status(400).json({
         message: 'Category not updated',
@@ -68,13 +87,13 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const category = await category.destroy({
+    const categoryDelete = await category.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (category) {
+    if (categoryDelete) {
       res.status(200).json({
         message: 'Category deleted',
       });
